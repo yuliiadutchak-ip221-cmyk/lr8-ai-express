@@ -1,0 +1,233 @@
+:root {
+  --bg-start: #0b1221;
+  --bg-end: #0f172a;
+  --panel: rgba(255, 255, 255, 0.03);
+  --card: #111827;
+  --accent: #5eead4;
+  --accent-2: #f59e0b;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 10px 50px rgba(0, 0, 0, 0.35);
+  --radius: 16px;
+  --glass: blur(12px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI Variable", "Inter Tight", "Manrope", system-ui, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 20%, #1b2a44, transparent 20%),
+    radial-gradient(circle at 80% 0%, #0f766e, transparent 25%),
+    linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 60px;
+}
+
+.shell {
+  width: min(1200px, 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.halo {
+  position: absolute;
+  inset: -120px -40px auto -40px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(94, 234, 212, 0.08), transparent 60%);
+  filter: var(--glass);
+  pointer-events: none;
+}
+
+.header {
+  padding: 28px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.08), transparent 35%);
+  pointer-events: none;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(94, 234, 212, 0.1);
+  border: 1px solid rgba(94, 234, 212, 0.25);
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  max-width: 760px;
+  line-height: 1.5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.card h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.card small {
+  color: var(--muted);
+}
+
+label {
+  display: block;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 14px 12px;
+  margin-top: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="text"] {
+  min-height: unset;
+}
+
+textarea:focus,
+input[type="text"]:focus {
+  outline: none;
+  border-color: rgba(94, 234, 212, 0.6);
+  box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.15);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+button {
+  background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+  color: #0b1221;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 30px rgba(14, 165, 233, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 34px rgba(14, 165, 233, 0.42);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button.secondary {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: #0f172a;
+  box-shadow: 0 8px 30px rgba(249, 115, 22, 0.35);
+}
+
+.status {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.output {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  background: rgba(0, 0, 0, 0.22);
+  min-height: 80px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.tag {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 24px 12px 48px;
+  }
+
+  .header {
+    padding: 22px;
+  }
+}

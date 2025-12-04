@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Студія | Express Proxy</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div class="halo"></div>
+      <section class="header">
+        <h1 class="title">
+          AI Студія
+          <span>Express proxy</span>
+        </h1>
+        <p class="subtitle">
+          Єдина сторінка для взаємодії з API-обгорткою: чат OpenAI через ваш сервер.
+        </p>
+        <div class="tag-row">
+          <div class="tag">/api/chat → OpenAI</div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Чат</h2>
+          <small>Став запит до OpenAI через свій сервер.</small>
+          <form id="chatForm">
+            <label for="chatMessage">Повідомлення</label>
+            <textarea
+              id="chatMessage"
+              name="message"
+              placeholder="Напиши будь-що і отримай відповідь від OpenAI…"
+              required
+            >Hello! Can you outline a quick study plan for the week?</textarea>
+            <div class="actions">
+              <button id="chatBtn" type="submit">Запитати OpenAI</button>
+              <span id="chatStatus" class="status">Готово</span>
+            </div>
+            <div id="chatOutput" class="output">Відповідь зʼявиться тут.</div>
+          </form>
+        </article>
+      </section>
+
+      <div class="footer">
+        Порада: ключі зберігай у <code>.env</code>. Фронтенд спілкується лише з
+        <code>/api</code>, тому секрети лишаються на сервері.
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
